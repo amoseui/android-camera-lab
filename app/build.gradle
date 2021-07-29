@@ -1,8 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'jacoco'
     id 'com.vanniktech.android.junit.jacoco'
+    id('io.gitlab.arturbosch.detekt').version('1.17.1')
 }
 
 android {
@@ -51,7 +51,16 @@ junitJacoco {
     excludes // type String List
     includeNoLocationClasses = false // type boolean
     includeInstrumentationCoverageInMergedReport = false // type boolean
-//    csv.enabled = false
-//    xml.enabled = true
-//    html.enabled = true
+}
+
+detekt {
+    toolVersion = '1.17.1'
+    config = files('config/detekt/detekt.yml')
+    allRules = true
+    buildUponDefaultConfig = false
+    reports {
+        html {
+            enabled = true
+        }
+    }
 }

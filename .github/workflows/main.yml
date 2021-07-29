@@ -23,7 +23,7 @@ jobs:
         key: ${{ runner.os }}-gradle-${{ hashFiles('app/build.gradle') }}
         restore-keys: ${{ runner.os }}-gradle
     - name: Build with Gradle
-      run: ./gradlew build jacocoTestReportDebug
+      run: ./gradlew build jacocoTestReportDebug detekt
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1.0.7
 
