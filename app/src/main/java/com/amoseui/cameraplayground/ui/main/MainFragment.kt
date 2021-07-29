@@ -8,6 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.amoseui.cameraplayground.R
 
+fun sampleMethod(a: Int, b: Int) : Int {
+    return a + b;
+}
+
 class MainFragment : Fragment() {
 
     companion object {
@@ -28,5 +32,4 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }
