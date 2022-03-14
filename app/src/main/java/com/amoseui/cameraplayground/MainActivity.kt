@@ -1,7 +1,7 @@
 package com.amoseui.cameraplayground
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.amoseui.cameraplayground.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
