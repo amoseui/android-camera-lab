@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.amoseui.cameraplayground.MainActivity
 import com.amoseui.cameraplayground.R
 
 fun sampleMethod(a: Int, b: Int): Int {
@@ -32,5 +34,10 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
+
+        val button = view?.findViewById<Button>(R.id.button)
+        button?.setOnClickListener {
+            (activity as MainActivity).replaceFragment(SettingsFragment.newInstance())
+        }
     }
 }

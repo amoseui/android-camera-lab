@@ -2,6 +2,7 @@ package com.amoseui.cameraplayground
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.amoseui.cameraplayground.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
@@ -10,9 +11,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
-                .commitNow()
+            replaceFragment(MainFragment.newInstance())
         }
+    }
+
+    fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .commitNow()
     }
 }
