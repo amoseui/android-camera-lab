@@ -1,4 +1,4 @@
-package com.amoseui.cameraplayground.ui.main
+package com.amoseui.cameralab.ui.main
 
 import androidx.lifecycle.ViewModel
 

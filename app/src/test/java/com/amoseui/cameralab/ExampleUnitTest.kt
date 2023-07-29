@@ -1,6 +1,6 @@
-package com.amoseui.cameraplayground
+package com.amoseui.cameralab
 
-import com.amoseui.cameraplayground.ui.main.sampleMethod
+import com.amoseui.cameralab.ui.main.sampleMethod
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
