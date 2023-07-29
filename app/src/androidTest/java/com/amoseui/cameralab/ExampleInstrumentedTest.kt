@@ -1,4 +1,4 @@
-package com.amoseui.cameraplayground
+package com.amoseui.cameralab
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -18,6 +18,6 @@ class ExampleInstrumentedTest {
         // Context of the app under test.
         val appContext =
             InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.amoseui.cameraplayground", appContext.packageName)
+        assertEquals("com.amoseui.cameralab", appContext.packageName)
     }
 }

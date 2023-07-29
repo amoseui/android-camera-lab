@@ -1,4 +1,4 @@
-package com.amoseui.cameraplayground.ui.main
+package com.amoseui.cameralab.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.amoseui.cameraplayground.MainActivity
-import com.amoseui.cameraplayground.R
+import com.amoseui.cameralab.MainActivity
+import com.amoseui.cameralab.R
 
 fun sampleMethod(a: Int, b: Int): Int {
     return a + b
