@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'com.vanniktech.android.junit.jacoco'
     id('io.gitlab.arturbosch.detekt').version('1.17.1')
     id("org.jlleitschuh.gradle.ktlint").version('10.2.1')
 }
@@ -9,11 +8,11 @@ plugins {
 android {
     namespace 'com.amoseui.cameralab'
 
-    compileSdk 33
+    compileSdk 34
     defaultConfig {
         applicationId "com.amoseui.cameralab"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 10
         versionName "0.1.0-dev"
 
@@ -25,13 +24,16 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            enableUnitTestCoverage true
+        }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '17'
     }
 }
 
@@ -42,17 +44,15 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     implementation 'com.google.android.material:material:1.9.0'
+
+    implementation 'androidx.fragment:fragment-ktx:1.6.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.0'
+
     testImplementation 'junit:junit:4.13.2'
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-}
-
-junitJacoco {
-    jacocoVersion = '0.8.7' // type String
-    ignoreProjects = [] // type String array
-    excludes // type String List
-    includeNoLocationClasses = false // type boolean
-    includeInstrumentationCoverageInMergedReport = false // type boolean
 }
 
 detekt {
