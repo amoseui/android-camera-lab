@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.amoseui.cameralab.MainActivity
 import com.amoseui.cameralab.R
 
@@ -15,10 +17,6 @@ fun sampleMethod(a: Int, b: Int): Int {
 }
 
 class MainFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
 
     private lateinit var viewModel: MainViewModel
 
@@ -30,14 +28,35 @@ class MainFragment : Fragment() {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val button = view?.findViewById<Button>(R.id.button)
+        // TODO: Use the ViewModel
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+
+        val navigationController = findNavController()
+
+        val buttonCamera1 = view.findViewById<Button>(R.id.button_camera_1)
+        buttonCamera1?.setOnClickListener {
+            navigationController.navigate(R.id.action_mainFragment_to_cameraFragment,
+                bundleOf("cameraId"   to CameraFactory.CameraType.CAMERA1))
+        }
+
+        val buttonCamera2 = view.findViewById<Button>(R.id.button_camera_2)
+        buttonCamera2?.setOnClickListener {
+            navigationController.navigate(R.id.action_mainFragment_to_cameraFragment,
+                bundleOf("cameraId"   to CameraFactory.CameraType.CAMERA2))
+        }
+
+        val buttonCameraX = view.findViewById<Button>(R.id.button_camera_x)
+        buttonCameraX?.setOnClickListener {
+            navigationController.navigate(R.id.action_mainFragment_to_cameraFragment,
+                bundleOf("cameraId"   to CameraFactory.CameraType.CAMERAX))
+        }
+
+        val button = view.findViewById<Button>(R.id.button)
         button?.setOnClickListener {
-            (activity as MainActivity).replaceFragment(SettingsFragment.newInstance())
+            navigationController.navigate(R.id.action_mainFragment_to_settingsFragment)
         }
     }
 }

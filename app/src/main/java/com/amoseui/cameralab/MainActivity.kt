@@ -10,14 +10,5 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        if (savedInstanceState == null) {
-            replaceFragment(MainFragment.newInstance())
-        }
-    }
-
-    fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, fragment)
-            .commitNow()
     }
 }

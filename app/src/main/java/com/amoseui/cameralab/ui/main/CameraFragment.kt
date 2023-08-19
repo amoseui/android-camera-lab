@@ -7,13 +7,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.amoseui.cameralab.R
 
-class SettingsFragment : Fragment() {
+class CameraFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.settings_fragment, container, false)
+        return inflater.inflate(R.layout.camera_fragment, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val camera = CameraFactory.createCamera(arguments?.getSerializable("cameraId") as CameraFactory.CameraType)
     }
 }
