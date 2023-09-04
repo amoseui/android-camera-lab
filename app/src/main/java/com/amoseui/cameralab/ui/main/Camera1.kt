@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.view.ViewGroup
+import androidx.camera.view.PreviewView
 import java.io.IOException
 import java.lang.RuntimeException
 
@@ -21,7 +22,10 @@ class Camera1 : ICamera {
 
     private var camera: Camera? = null
 
-    override fun setUpPreview() {
+    override fun setPreview(previewView: PreviewView) {
+    }
+
+    override fun setUpPreview(context: Context) {
     }
 
     override fun openCamera() {

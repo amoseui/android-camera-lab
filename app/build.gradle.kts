@@ -52,6 +52,13 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
 
+    implementation(libs.camerax.camera2)
+    implementation(libs.camerax.core)
+    // implementation(libs.camerax.extensions)
+    implementation(libs.camerax.lifecycle)
+    // implementation(libs.camerax.video)
+    implementation(libs.camerax.view)
+
     testImplementation(libs.junit)
 
     androidTestImplementation(libs.androidx.test.ext.junit)
