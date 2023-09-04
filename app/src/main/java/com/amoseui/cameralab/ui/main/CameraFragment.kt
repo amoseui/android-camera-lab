@@ -9,6 +9,8 @@ import com.amoseui.cameralab.R
 
 class CameraFragment : Fragment() {
 
+    private lateinit var camera : ICamera
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -19,6 +21,12 @@ class CameraFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val camera = CameraFactory.createCamera(arguments?.getSerializable("cameraId") as CameraFactory.CameraType)
+        camera = CameraFactory.createCamera(arguments?.getSerializable("cameraId") as CameraFactory.CameraType)
+        camera.setUpPreview()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        camera.closeCamera()
     }
 }

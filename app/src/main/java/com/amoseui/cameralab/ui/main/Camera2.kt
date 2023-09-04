@@ -1,15 +1,16 @@
 package com.amoseui.cameralab.ui.main
 
 class Camera2 : ICamera {
+
     override fun setUpPreview() {
         TODO("Not yet implemented")
     }
 
-    override fun showPreview() {
+    override fun openCamera() {
         TODO("Not yet implemented")
     }
 
-    override fun hidePreview() {
+    override fun closeCamera() {
         TODO("Not yet implemented")
     }
 }
