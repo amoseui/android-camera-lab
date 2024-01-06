@@ -47,7 +47,7 @@ subprojects {
             ktlint()
             licenseHeaderFile(
                 rootProject.file("spotless/spotless.license.kt"),
-                "(^(?![\\/ ]\\*).*$)"
+                "(^(?![\\/ |\\@]\\*).*$)"
             )
             trimTrailingWhitespace()
             endWithNewline()
@@ -55,7 +55,10 @@ subprojects {
         format("xml") {
             target("**/*.xml")
             targetExclude("$buildDir/**/*.xml")
-            licenseHeaderFile(rootProject.file("spotless/spotless.license.xml"), "(<[^!?])")
+            licenseHeaderFile(
+                rootProject.file("spotless/spotless.license.xml"),
+                "(<[^!?])"
+            )
             trimTrailingWhitespace()
             endWithNewline()
         }
