@@ -6,29 +6,43 @@ plugins {
     alias(libs.plugins.spotless)
 }
 
-configure<com.diffplug.gradle.spotless.SpotlessExtension> {
-    kotlin {
-        target("**/*.kt")
-        targetExclude("$buildDir/**/*.kt")
-        ktlint()
-        licenseHeaderFile(rootProject.file("spotless/spotless.license.kt"))
-        trimTrailingWhitespace()
-        endWithNewline()
+subprojects {
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
+        kotlinOptions.freeCompilerArgs += listOf(
+            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-Xopt-in=kotlin.time.ExperimentalTime",
+        )
     }
-    kotlinGradle {
-        target("**/*.kts")
-        targetExclude("$buildDir/**/*.kts")
-        ktlint()
-        licenseHeaderFile(rootProject.file("spotless/spotless.license.kt"), "(^(?![\\/ ]\\*).*$)")
-        trimTrailingWhitespace()
-        endWithNewline()
-    }
-    format("xml") {
-        target("**/*.xml")
-        targetExclude("$buildDir/**/*.xml")
-        licenseHeaderFile(rootProject.file("spotless/spotless.license.xml"), "(<[^!?])")
-        trimTrailingWhitespace()
-        endWithNewline()
+
+    apply(plugin = rootProject.libs.plugins.spotless.get().pluginId)
+    configure<com.diffplug.gradle.spotless.SpotlessExtension> {
+        kotlin {
+            target("**/*.kt")
+            targetExclude("$buildDir/**/*.kt")
+            ktlint()
+            licenseHeaderFile(rootProject.file("spotless/spotless.license.kt"))
+            trimTrailingWhitespace()
+            endWithNewline()
+        }
+        kotlinGradle {
+            target("**/*.kts")
+            targetExclude("$buildDir/**/*.kts")
+            ktlint()
+            licenseHeaderFile(
+                rootProject.file("spotless/spotless.license.kt"),
+                "(^(?![\\/ ]\\*).*$)"
+            )
+            trimTrailingWhitespace()
+            endWithNewline()
+        }
+        format("xml") {
+            target("**/*.xml")
+            targetExclude("$buildDir/**/*.xml")
+            licenseHeaderFile(rootProject.file("spotless/spotless.license.xml"), "(<[^!?])")
+            trimTrailingWhitespace()
+            endWithNewline()
+        }
     }
 }
 
