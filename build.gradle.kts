@@ -19,7 +19,7 @@ configure<com.diffplug.gradle.spotless.SpotlessExtension> {
         target("**/*.kts")
         targetExclude("$buildDir/**/*.kts")
         ktlint()
-        licenseHeaderFile(rootProject.file("spotless/spotless.license.kt"))
+        licenseHeaderFile(rootProject.file("spotless/spotless.license.kt"), "(^(?![\\/ ]\\*).*$)")
         trimTrailingWhitespace()
         endWithNewline()
     }
