@@ -25,7 +25,7 @@ configure<com.diffplug.gradle.spotless.SpotlessExtension> {
     }
     format("xml") {
         target("**/*.xml")
-        targetExclude("$buildDir/**/*.kts")
+        targetExclude("$buildDir/**/*.xml")
         licenseHeaderFile(rootProject.file("spotless/spotless.license.xml"), "(<[^!?])")
         trimTrailingWhitespace()
         endWithNewline()
