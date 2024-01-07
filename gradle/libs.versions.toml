@@ -1,28 +1,30 @@
 [versions]
-agp = "8.1.0"
-org-jetbrains-kotlin-android = "1.8.0"
+agp = "8.2.1"
+kotlin = "1.9.0"
 detekt = "1.18.1"
 ktlint = "10.2.0"
+spotless = "6.23.3"
 
 appcompat = "1.6.1"
-core-ktx = "1.10.1"
-material = "1.9.0"
+core-ktx = "1.12.0"
+material = "1.11.0"
 
 contraintlayout = "2.1.4"
-lifecycle-ktx = "2.6.1"
+lifecycle-ktx = "2.6.2"
 
-fragment-ktx = "1.6.1"
-navigation-ktx = "2.7.0"
+fragment-ktx = "1.6.2"
+navigation-ktx = "2.7.6"
 
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
 
 [plugins]
-com-android-application = { id = "com.android.application", version.ref = "agp" }
-org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 io-gitlab-arturbosch-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 org-jlleitschuh-gradle-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 
 [libraries]
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
