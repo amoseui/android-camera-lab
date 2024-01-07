@@ -47,7 +47,7 @@ subprojects {
             ktlint()
             licenseHeaderFile(
                 rootProject.file("spotless/spotless.license.kt"),
-                "(^(?![\\/ |\\@]\\*).*$)"
+                "(^(?![\\/ ]\\*).*$)"
             )
             trimTrailingWhitespace()
             endWithNewline()
